@@ -1,0 +1,25 @@
+/* Style css */
+html, body{
+  background: #fff;
+}
+
+.success{
+  color: #2ECC40;
+}
+
+.error {
+  color: #FF4136;
+}
+
+.error ul, .success ul{
+  list-style: none;
+  padding: 0;
+}
+
+.user-progress {
+	cursor: pointer;
+}
+
+.navbar {
+    border-radius: 0px;
+}
