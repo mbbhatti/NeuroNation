@@ -31,6 +31,8 @@ Use this migration command to create database tables and fake entries.
 
 You can download digram [Scheme](https://github.com/mbbhatti/databases/blob/master/NeuroNation.png) to view its presentaion.
 
+-Note: History trigger created for histroy table to manage user session categories on insert data into the score table.
+
 ## How To Test
 PHPUnit used for code testability and performance. You may need to run below commands for testing within php interface.
 
