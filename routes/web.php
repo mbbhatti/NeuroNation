@@ -20,4 +20,4 @@ Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 
 // History Route
-Route::get('/history', 'HistroyController@show')->name('history');
+Route::get('/history', 'HistoryController@show')->name('history')->middleware('auth');

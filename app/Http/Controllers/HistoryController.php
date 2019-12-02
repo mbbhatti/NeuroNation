@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\History;
 
-class HistroyController extends Controller
+class HistoryController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -24,12 +25,11 @@ class HistroyController extends Controller
     /**
      * Create a new controller instance.
      *     
-     * @param  object $histroy 
+     * @param  object $history 
      * @return void
      */
     public function __construct(History $history)
     {
-        $this->middleware('auth');
         $this->history = $history;
             
     }    
@@ -44,4 +44,20 @@ class HistroyController extends Controller
         $history = $this->history->getUserHistory();         
         return view("history.index", ['history' => $history]);
     }    
+
+    /**
+     * Show history api response.
+     *
+     * @param object request
+     * @return object json
+     */
+    public function history(request $request): object
+    {   
+        $data = [];     
+        if(isset($request->id)) {
+            $data = $this->history->getUserHistory($request->id);
+        }
+
+        return response()->json(['history' => $data]);
+    }
 }

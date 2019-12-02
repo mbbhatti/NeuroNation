@@ -17,5 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+// History Route: Get user josn history 
 Route::get('/user/history/{id}', 'HistoryController@history');

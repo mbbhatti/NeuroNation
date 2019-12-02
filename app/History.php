@@ -22,15 +22,18 @@ class History extends Model
 
     /**
      * Get user progress history detail
-     * Also used for recent session categories     
+     * Get user recent session categories     
      *     
+     * @param int   $id     optional user id
      * @return object
      */
-    public function getUserHistory()
+    public function getUserHistory(int $id = 0): object
     {
+        $id = ($id == 0) ? Auth::user()->id : $id;
+
         $history = History::select(
                 DB::raw('score, date, GROUP_CONCAT(category) AS category')
-                )->where('user_id', Auth::user()->id)
+                )->where('user_id', $id)
                 ->groupBy('session_id')
                 ->orderBy('date', 'DESC')
                 ->offset(0)

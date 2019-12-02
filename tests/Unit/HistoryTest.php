@@ -23,4 +23,26 @@ class HistoryTest extends TestCase
 
         $this->assertAuthenticatedAs($user);
     }
+
+    /**
+     * Test history api.
+     *
+     * @return void
+     */
+    public function testHistoryDetail()
+    {
+        $response = $this->get('/api/user/history/1');
+        $response->assertStatus(200);
+    }
+
+    /**
+     * Test empty history api.
+     *
+     * @return void
+     */
+    public function testEmptyHistory()
+    {
+        $response = $this->get('/api/user/history/999');
+        $response->assertStatus(200);
+    }
 }
