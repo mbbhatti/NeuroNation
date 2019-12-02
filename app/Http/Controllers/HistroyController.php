@@ -35,7 +35,7 @@ class HistroyController extends Controller
     }    
 
     /**
-     * Show the application landing page.
+     * Show the application history page.
      *
      * @return \Illuminate\Http\Response
      */

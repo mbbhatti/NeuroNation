@@ -19,5 +19,5 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 
-// Home Route
+// History Route
 Route::get('/history', 'HistroyController@show')->name('history');
