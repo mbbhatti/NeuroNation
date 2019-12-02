@@ -20,4 +20,4 @@ Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 
 // Home Route
-Route::get('/home', 'HomeController@show')->name('home');
+Route::get('/history', 'HistroyController@show')->name('history');

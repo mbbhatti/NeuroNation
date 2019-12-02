@@ -22,6 +22,13 @@ class LoginController extends Controller
     use AuthenticatesUsers;    
 
     /**
+     * Where to redirect users after registration.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/history';
+    
+    /**
      * Create a new controller instance.
      *
      * @return void

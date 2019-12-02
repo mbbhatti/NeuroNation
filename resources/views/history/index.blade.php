@@ -1,6 +1,6 @@
 @extends('layouts/layout')
 
-@section('pageTitle', 'Home')
+@section('title', 'History')
 
 @section('content')
 @include('partials.navigation')

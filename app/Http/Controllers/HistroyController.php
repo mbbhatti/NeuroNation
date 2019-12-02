@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use App\History;
 
-class HomeController extends Controller
+class HistroyController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | Home Controller
+    | History Controller
     |--------------------------------------------------------------------------
     |
     | This controller is responsible for to present logged in user access.
-    | Identify a user progress histroy
+    | Identify a user progress histroy.
     |
     */
 
@@ -42,6 +42,6 @@ class HomeController extends Controller
     public function show()
     {           
         $history = $this->history->getUserHistory();         
-        return view("homes.home", ['history' => $history]);
+        return view("history.index", ['history' => $history]);
     }    
 }

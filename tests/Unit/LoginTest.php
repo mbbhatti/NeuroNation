@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -34,7 +34,7 @@ class LoginTest extends TestCase
         $user = factory(User::class)->make();
 
         $response = $this->actingAs($user)->get('/login');        
-        $response->assertRedirect('/home');
+        $response->assertRedirect('/history');
         $response->assertStatus(302);
     }
 
@@ -52,7 +52,7 @@ class LoginTest extends TestCase
             'password' => bcrypt('123456'),
         ]);
 
-        $response->assertRedirect('/home');
+        $response->assertRedirect('/history');
         $response->assertStatus(302);
 
         $this->assertAuthenticatedAs($user);
@@ -65,7 +65,7 @@ class LoginTest extends TestCase
      */
     public function testDoesNotLoginAnInvalidUser()
     {
-        $user = factory(User::class)->create([
+        $user = factory(User::class)->make([
             'password' => bcrypt('123456')
         ]);
         
