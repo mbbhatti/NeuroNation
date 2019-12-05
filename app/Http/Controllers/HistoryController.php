@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\History;
+use App\Score;
 
 class HistoryController extends Controller
 {
@@ -20,17 +20,17 @@ class HistoryController extends Controller
     /**
      * @var object
      */
-    protected $history;
+    protected $score;
 
     /**
      * Create a new controller instance.
      *     
-     * @param  object $history 
+     * @param  object $score 
      * @return void
      */
-    public function __construct(History $history)
+    public function __construct(Score $score)
     {
-        $this->history = $history;
+        $this->score = $score;
             
     }    
 
@@ -41,7 +41,7 @@ class HistoryController extends Controller
      */
     public function show()
     {           
-        $history = $this->history->getUserHistory();         
+        $history = $this->score->getHistory();         
         return view("history.index", ['history' => $history]);
     }    
 
@@ -55,7 +55,7 @@ class HistoryController extends Controller
     {   
         $data = [];     
         if(isset($request->id)) {
-            $data = $this->history->getUserHistory($request->id);
+            $data = $this->score->getHistory($request->id);
         }
 
         return response()->json(['history' => $data]);

@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
          	SessionsTableSeeder::class,
             UserCourseTableSeeder::class,
             CourseExerciseTableSeeder::class,
-            CategoryExerciseTableSeeder::class,
             SessionExerciseTableSeeder::class,
             ScoresTableSeeder::class
          ]);

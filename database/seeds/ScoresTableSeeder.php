@@ -14,8 +14,7 @@ class ScoresTableSeeder extends Seeder
         $session_ids = App\Session::all('id')->pluck('id')->toArray();
         $user_id = 1;        
         foreach ($session_ids as $id) {            
-            $data = ['score' => rand(0, 100), 'user_id' => $user_id, 'session_id' => $id];
-            App\History::truncate();
+            $data = ['score' => rand(0, 100), 'user_id' => $user_id, 'session_id' => $id];            
             DB::table('scores')->insert($data);
         }
     }

@@ -11,21 +11,12 @@ class ExercisesTableSeeder extends Seeder
      */
     public function run()
     {
-        $data = [
-    		['name' => 'Exercise1'],
-    		['name' => 'Exercise2'],
-    		['name' => 'Exercise3'],
-    		['name' => 'Exercise4'],
-            ['name' => 'Exercise5'],
-            ['name' => 'Exercise6'],
-            ['name' => 'Exercise7'],
-            ['name' => 'Exercise8'],
-            ['name' => 'Exercise9'],
-            ['name' => 'Exercise10'],
-            ['name' => 'Exercise11'],
-            ['name' => 'Exercise12'],
-            ['name' => 'Exercise13']
-    	];
+        $category_ids = App\Category::all('id')->pluck('id')->toArray();
+
+        $data = [];
+        foreach ($category_ids as $i => $id) {
+            $data[] = ['name' => 'Exercise', 'category_id' => $id];
+        }
         DB::table('exercises')->insert($data);
     }
 }
