@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Score;
+use App\Repositories\ScoreRepository;
 
 class HistoryController extends Controller
 {
@@ -28,7 +28,7 @@ class HistoryController extends Controller
      * @param  object $score 
      * @return void
      */
-    public function __construct(Score $score)
+    public function __construct(ScoreRepository $score)
     {
         $this->score = $score;
             
